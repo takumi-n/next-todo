@@ -127,9 +127,7 @@ export default function TodoInput() {
       )}
       <InputBase
         className={classes.input}
-        placeholder={
-          isTimeInput ? "かかる時間（分）を入力" : "タスク名@かかる時間"
-        }
+        placeholder={isTimeInput ? "かかる時間（分）" : "タスク名@かかる時間"}
         value={inputBoxText}
         onChange={handleInputChange}
       />

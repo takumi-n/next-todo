@@ -21,8 +21,15 @@ export default function EstimatedTime() {
     currentTime + totalEstimatedMinutes * 60 * 1000; // To milliseconds
 
   return (
-    <span>
-      完了予定時刻: {new Date(estimatedTimeOfCompletion).toLocaleTimeString()}
-    </span>
+    <>
+      {totalEstimatedMinutes > 0 ? (
+        <span>
+          完了予定時刻:{" "}
+          {new Date(estimatedTimeOfCompletion).toLocaleTimeString()}
+        </span>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
