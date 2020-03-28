@@ -70,18 +70,6 @@ export default function TodoInput() {
   });
 
   function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
-    if (e.target.value === "@") {
-      setErrorMessage("最初にタスクのタイトルを入力してください");
-      return;
-    }
-
-    if (e.target.value.substr(-1) === "@" && !isTimeInput) {
-      setText(e.target.value);
-      setIsTimeInput(true);
-      e.target.value = "";
-      return;
-    }
-
     if (isTimeInput) {
       const minutes = parseInt(e.target.value);
       if (minutes < 1) {
@@ -90,6 +78,18 @@ export default function TodoInput() {
 
       setEstimatedMinutes(minutes);
       return;
+    } else {
+      if (e.target.value === "@") {
+        setErrorMessage("最初にタスクのタイトルを入力してください");
+        return;
+      }
+
+      if (e.target.value.substr(-1) === "@") {
+        setText(e.target.value);
+        setIsTimeInput(true);
+        e.target.value = "";
+        return;
+      }
     }
 
     setText(e.target.value);
@@ -126,6 +126,7 @@ export default function TodoInput() {
         ""
       )}
       <InputBase
+        type={isTimeInput ? "number" : ""}
         className={classes.input}
         placeholder={isTimeInput ? "かかる時間（分）" : "タスク名@かかる時間"}
         value={inputBoxText}
