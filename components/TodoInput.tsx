@@ -133,7 +133,7 @@ export default function TodoInput() {
       />
       <IconButton
         onClick={() => {
-          addTodo(text, estimatedMinutes);
+          addTodo(text.slice(0, -1), estimatedMinutes);
           reset();
         }}
       >
