@@ -90,9 +90,9 @@ export default function TodoInput() {
         e.target.value = "";
         return;
       }
-    }
 
-    setText(e.target.value);
+      setText(e.target.value);
+    }
   }
 
   function reset() {
