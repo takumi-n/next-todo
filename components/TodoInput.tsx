@@ -126,7 +126,6 @@ export default function TodoInput() {
         ""
       )}
       <InputBase
-        type={isTimeInput ? "number" : ""}
         className={classes.input}
         placeholder={isTimeInput ? "かかる時間（分）" : "タスク名@かかる時間"}
         value={inputBoxText}
