@@ -6,12 +6,12 @@ import {
   Snackbar
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import InputBase from "@material-ui/core/InputBase";
 import Queue from "@material-ui/icons/Queue";
 import { useState, ChangeEvent, useEffect } from "react";
 
 import { useUser } from "../contexts/UserContext";
+import Alert from "./Alert";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -37,10 +37,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: "#90caf9"
   }
 }));
-
-function Alert(props: AlertProps) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 export default function TodoInput() {
   const { addTodo } = useUser();
