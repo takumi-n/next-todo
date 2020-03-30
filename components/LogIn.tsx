@@ -23,6 +23,9 @@ export default function LogIn() {
       firebase.initializeApp(config);
     }
     firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        return;
+      }
       setUser(user);
     });
   });

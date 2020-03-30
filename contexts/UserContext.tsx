@@ -35,31 +35,6 @@ export default function TodoContext(props: Props) {
         .firestore()
         .collection(user.uid)
         .onSnapshot(querySnapShot => {
-          if (querySnapShot.size === 0) {
-            const defaultTasks = [
-              {
-                id: generateID(),
-                title: "タスクを作ってみよう",
-                estimatedMinutes: 1,
-                done: false
-              },
-              {
-                id: generateID(),
-                title: "タスクを完了してみよう",
-                estimatedMinutes: 1,
-                done: false
-              }
-            ];
-            defaultTasks.forEach(t =>
-              firebase
-                .firestore()
-                .collection(user.uid)
-                .doc(t.id)
-                .set(t)
-            );
-            return;
-          }
-
           const fetchedTodos = {};
           querySnapShot.forEach(doc => {
             const id = doc.id;
@@ -79,6 +54,8 @@ export default function TodoContext(props: Props) {
   });
 
   const addTodo = (title: string, estimatedMinutes: number) => {
+    console.log("ここ");
+    console.log(user);
     if (user) {
       const id = generateID();
       firebase
