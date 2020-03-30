@@ -105,6 +105,15 @@ export default function TodoInput() {
     setErrorMessage("");
   }
 
+  function handleSubmit() {
+    if (text === '' || estimatedMinutes === 0) {
+      setErrorMessage('タスクのタイトルと所要時間を入力してください');
+      return;
+    }
+    addTodo(text.slice(0, -1), estimatedMinutes);
+    reset();
+  }
+
   const classes = useStyles();
 
   return (
@@ -131,12 +140,7 @@ export default function TodoInput() {
         value={inputBoxText}
         onChange={handleInputChange}
       />
-      <IconButton
-        onClick={() => {
-          addTodo(text.slice(0, -1), estimatedMinutes);
-          reset();
-        }}
-      >
+      <IconButton onClick={handleSubmit}>
         <Queue />
       </IconButton>
     </Paper>
