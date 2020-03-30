@@ -1,7 +1,7 @@
 import { AppProps } from "next/app";
 import { CssBaseline } from "@material-ui/core";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <CssBaseline />
@@ -9,5 +9,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
-
-export default MyApp;

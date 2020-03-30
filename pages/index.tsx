@@ -1,7 +1,7 @@
 import Page from "../components/Page";
 import TodoList from "../components/TodoList";
 import TodoInput from "../components/TodoInput";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   input: {
@@ -14,13 +14,11 @@ export default function Index() {
   const classes = useStyles();
 
   return (
-    <>
-      <Page>
-        <div className={classes.input}>
-          <TodoInput />
-        </div>
-        <TodoList />
-      </Page>
-    </>
+    <Page>
+      <div className={classes.input}>
+        <TodoInput />
+      </div>
+      <TodoList />
+    </Page>
   );
 }

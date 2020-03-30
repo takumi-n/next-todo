@@ -1,11 +1,11 @@
 import {
   Paper,
   IconButton,
-  makeStyles,
   Theme,
   Typography,
   Snackbar
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import InputBase from "@material-ui/core/InputBase";
 import Queue from "@material-ui/icons/Queue";
@@ -106,8 +106,8 @@ export default function TodoInput() {
   }
 
   function handleSubmit() {
-    if (text === '' || estimatedMinutes === 0) {
-      setErrorMessage('タスクのタイトルと所要時間を入力してください');
+    if (text === "" || estimatedMinutes === 0) {
+      setErrorMessage("タスクのタイトルと所要時間を入力してください");
       return;
     }
     addTodo(text.slice(0, -1), estimatedMinutes);
