@@ -83,11 +83,13 @@ export default function TodoContext(props: Props) {
 
   const addTodo = (title: string, estimatedMinutes: number) => {
     if (user) {
+      const id = generateID();
       firebase
         .firestore()
         .collection(user.uid)
-        .doc(generateID())
+        .doc(id)
         .set({
+          id,
           title,
           estimatedMinutes,
           done: false
