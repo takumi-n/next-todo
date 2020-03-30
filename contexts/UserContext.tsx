@@ -36,7 +36,7 @@ export default function TodoContext(props: Props) {
         .collection(user.uid)
         .onSnapshot(querySnapShot => {
           if (querySnapShot.size === 0) {
-            const [example1, example2] = [
+            const defaultTasks = [
               {
                 id: generateID(),
                 title: "タスクを作ってみよう",
@@ -50,16 +50,13 @@ export default function TodoContext(props: Props) {
                 done: false
               }
             ];
-            firebase
-              .firestore()
-              .collection(user.uid)
-              .doc(example1.id)
-              .set(example1);
-            firebase
-              .firestore()
-              .collection(user.uid)
-              .doc(example2.id)
-              .set(example2);
+            defaultTasks.forEach(t =>
+              firebase
+                .firestore()
+                .collection(user.uid)
+                .doc(t.id)
+                .set(t)
+            );
             return;
           }
 
