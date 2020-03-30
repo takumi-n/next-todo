@@ -1,7 +1,7 @@
 import { Paper, Checkbox } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { useTodos } from "./TodoContext";
+import { useTodos } from "../contexts/TodoContext";
 import TodoModel from "../models/todo";
 
 type Props = {

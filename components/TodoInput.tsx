@@ -11,7 +11,7 @@ import InputBase from "@material-ui/core/InputBase";
 import Queue from "@material-ui/icons/Queue";
 import { useState, ChangeEvent, useEffect } from "react";
 
-import { useTodos } from "./TodoContext";
+import { useTodos } from "../contexts/TodoContext";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {

@@ -2,8 +2,10 @@ import { ReactNode } from "react";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 
+import TodoContext from "../contexts/TodoContext";
+import UserContext from "../contexts/UserContext";
+
 import Meta from "./Meta";
-import TodoContext from "./TodoContext";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -23,15 +25,17 @@ export default function Page(props: Props) {
   return (
     <>
       <Meta />
-      <TodoContext>
-        <Header />
-        <Container fixed maxWidth="md">
-          {props.children}
-        </Container>
-        <div className={classes.footer}>
-          <Footer />
-        </div>
-      </TodoContext>
+      <UserContext>
+        <TodoContext>
+          <Header />
+          <Container fixed maxWidth="md">
+            {props.children}
+          </Container>
+          <div className={classes.footer}>
+            <Footer />
+          </div>
+        </TodoContext>
+      </UserContext>
     </>
   );
 }

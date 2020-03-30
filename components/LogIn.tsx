@@ -1,7 +1,8 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-
 import { useEffect } from "react";
+
+import { useUser } from "../contexts/UserContext";
 
 const config = {
   apiKey: "AIzaSyAJre7eKLjwexuglB79oH8mLJd_IdbJnEI",
@@ -14,9 +15,16 @@ const config = {
   measurementId: "G-EH1FCXKSKN"
 };
 
-export default function FirebaseAuth() {
+export default function LogIn() {
+  const { setUser } = useUser();
+
   useEffect(() => {
-    firebase.initializeApp(config);
+    if (firebase.apps.length === 0) {
+      firebase.initializeApp(config);
+    }
+    firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+    });
   });
 
   return (
