@@ -11,7 +11,7 @@ import InputBase from "@material-ui/core/InputBase";
 import Queue from "@material-ui/icons/Queue";
 import { useState, ChangeEvent, useEffect } from "react";
 
-import { useTodos } from "../contexts/TodoContext";
+import { useUser } from "../contexts/UserContext";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -43,7 +43,7 @@ function Alert(props: AlertProps) {
 }
 
 export default function TodoInput() {
-  const { addTodo } = useTodos();
+  const { addTodo } = useUser();
   const [isTimeInput, setIsTimeInput] = useState(false);
   const [text, setText] = useState("");
   const [estimatedMinutes, setEstimatedMinutes] = useState(0);

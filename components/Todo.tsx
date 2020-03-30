@@ -1,8 +1,8 @@
 import { Paper, Checkbox } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { useTodos } from "../contexts/TodoContext";
 import TodoModel from "../models/todo";
+import { useUser } from "../contexts/UserContext";
 
 type Props = {
   todo: TodoModel;
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Todo(props: Props) {
   const { todo } = props;
-  const { toggleTodo } = useTodos();
+  const { toggleTodo } = useUser();
 
   const classes = useStyles();
 
