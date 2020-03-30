@@ -1,7 +1,7 @@
-import { useTodos } from "../components/TodoContext";
 import Todo from "./Todo";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { useUser } from "../contexts/UserContext";
 
 const useStyles = makeStyles(theme => ({
   todo: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function TodoList() {
-  const { todos } = useTodos();
+  const { todos } = useUser();
 
   const undone = Object.values(todos).filter(todo => !todo.done);
   const done = Object.values(todos).filter(todo => todo.done);
@@ -38,7 +38,7 @@ export default function TodoList() {
       />
 
       {done.map(todo => (
-        <div className={classes.todo}>
+        <div className={classes.todo} key={todo.id}>
           <Todo todo={todo} />
         </div>
       ))}

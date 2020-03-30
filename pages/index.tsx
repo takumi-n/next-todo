@@ -3,6 +3,8 @@ import TodoList from "../components/TodoList";
 import TodoInput from "../components/TodoInput";
 import { makeStyles } from "@material-ui/core/styles";
 
+import WithAuth from "../lib/auth/WithAuth";
+
 const useStyles = makeStyles(theme => ({
   input: {
     marginTop: theme.spacing(3),
@@ -15,10 +17,12 @@ export default function Index() {
 
   return (
     <Page>
-      <div className={classes.input}>
-        <TodoInput />
-      </div>
-      <TodoList />
+      <WithAuth>
+        <div className={classes.input}>
+          <TodoInput />
+        </div>
+        <TodoList />
+      </WithAuth>
     </Page>
   );
 }

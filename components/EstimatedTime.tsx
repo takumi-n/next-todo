@@ -1,9 +1,9 @@
-import { useTodos } from "./TodoContext";
+import { useUser } from "../contexts/UserContext";
 import { useEffect, useState } from "react";
 
 export default function EstimatedTime() {
   const [currentTime, setCurrentTime] = useState(new Date().getTime());
-  const { todos } = useTodos();
+  const { todos } = useUser();
   useEffect(() => {
     setTimeout(() => {
       setCurrentTime(new Date().getTime());
