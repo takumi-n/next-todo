@@ -34,6 +34,11 @@ export default function LogIn() {
       }}
     >
       ログイン
+      <style jsx>{`
+        div {
+          cursor: pointer;
+        }
+      `}</style>
     </div>
   );
 }
