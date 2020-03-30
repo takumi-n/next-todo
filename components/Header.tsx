@@ -2,7 +2,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import firebase from "firebase/app";
 
 import { useUser } from "../contexts/UserContext";
 import EstimatedTime from "./EstimatedTime";
@@ -27,7 +26,6 @@ export default function Header() {
           {user ? (
             <p>
               <EstimatedTime />
-              <span onClick={() => firebase.auth().signOut()}>ログアウト</span>
             </p>
           ) : (
             <FirebaseAuth />
